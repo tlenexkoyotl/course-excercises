@@ -60,13 +60,7 @@ const determineResultSign = (result, decomposedNumber) => {
             for (const digit in decomposedNumber.number) {
                 if (Math.abs(revertedResult[digit]) > Math.abs(decomposedNumber.number[digit])) {
                     return result.sign;
-                }/* else if (revertedResult[digit] < decomposedNumber.number[digit]) {
-                    return decomposedNumber.sign;
                 } else {
-                    // return 0;
-                    return decomposedNumber.sign;
-                }*/
-                else {
                     return decomposedNumber.sign;
                 }
             }
