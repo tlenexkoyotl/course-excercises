@@ -1,9 +1,10 @@
 const assert = require('chai').assert;
-const checkSolutionValidity = require('../../src/sudoku');
+const SudokuSolutionValidator = require('../../src/sudokuValidator');
+const sudokuSolutionValidator = new SudokuSolutionValidator();
 
-suite('Check whether Sudoku solution is valid', () => {
-    test('Valid case 1', () => {
-        assert.isTrue(checkSolutionValidity([
+suite('Test Sudoku solution validator', () => {
+    test('Valid solution 1', () => {
+        assert.isTrue(sudokuSolutionValidator.validateSolution([
             [5, 3, 4, 6, 7, 8, 9, 1, 2],
             [6, 7, 2, 1, 9, 5, 3, 4, 8],
             [1, 9, 8, 3, 4, 2, 5, 6, 7],
@@ -16,8 +17,8 @@ suite('Check whether Sudoku solution is valid', () => {
         ]));
     });
 
-    test('Valid case 2', () => {
-        assert.isTrue(checkSolutionValidity([
+    test('Valid solution 2', () => {
+        assert.isTrue(sudokuSolutionValidator.validateSolution([
             [9, 5, 7, 6, 1, 3, 2, 8, 4],
             [4, 8, 3, 2, 5, 7, 1, 9, 6],
             [6, 1, 2, 8, 4, 9, 5, 3, 7],
@@ -30,8 +31,8 @@ suite('Check whether Sudoku solution is valid', () => {
         ]));
     });
 
-    test('Valid case 3', () => {
-        assert.isTrue(checkSolutionValidity([
+    test('Valid solution 3', () => {
+        assert.isTrue(sudokuSolutionValidator.validateSolution([
             [4, 2, 6, 5, 7, 1, 3, 9, 8],
             [8, 5, 7, 2, 9, 3, 1, 4, 6],
             [1, 3, 9, 4, 6, 8, 2, 7, 5],
@@ -44,8 +45,8 @@ suite('Check whether Sudoku solution is valid', () => {
         ]));
     });
 
-    test('Invalid case 1', () => {
-        assert.isFalse(checkSolutionValidity([
+    test('Invalid solution 1', () => {
+        assert.isFalse(sudokuSolutionValidator.validateSolution([
             [1, 2, 3, 4, 5, 6, 7, 8, 9],
             [1, 2, 3, 4, 5, 6, 7, 8, 9],
             [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -58,8 +59,8 @@ suite('Check whether Sudoku solution is valid', () => {
         ]));
     });
 
-    test('Invalid case 2', () => {
-        assert.isFalse(checkSolutionValidity([
+    test('Invalid solution 2', () => {
+        assert.isFalse(sudokuSolutionValidator.validateSolution([
             [5, 3, 4, 6, 7, 8, 9, 1, 5],
             [6, 7, 2, 1, 9, 5, 3, 4, 8],
             [1, 9, 8, 3, 4, 2, 5, 6, 7],
@@ -72,8 +73,8 @@ suite('Check whether Sudoku solution is valid', () => {
         ]));
     });
 
-    test('Invalid case 3', () => {
-        assert.isFalse(checkSolutionValidity([
+    test('Invalid solution 3', () => {
+        assert.isFalse(sudokuSolutionValidator.validateSolution([
             [9, 5, 7, 6, 1, 3, 2, 8, 4],
             [4, 8, 3, 2, 5, 7, 1, 9, 6],
             [6, 1, 2, 8, 4, 9, 5, 3, 7],
@@ -86,8 +87,8 @@ suite('Check whether Sudoku solution is valid', () => {
         ]));
     });
 
-    test('Invalid case 4', () => {
-        assert.isFalse(checkSolutionValidity([
+    test('Invalid solution 4', () => {
+        assert.isFalse(sudokuSolutionValidator.validateSolution([
             [4, 2, 6, 5, 7, 1, 3, 9, 8],
             [8, 5, 7, 2, 9, 3, 1, 4, 6],
             [1, 3, 9, 4, 4, 8, 2, 7, 5],
